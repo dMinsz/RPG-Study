@@ -56,11 +56,22 @@ public class Attacker : MonoBehaviour
     public void AttackTiming()
     {
       
+        //범위체크
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         foreach (Collider collider in colliders)
         {
           
             Vector3 dirToTarget = (collider.transform.position - transform.position).normalized;
+            // transform.forward 보고있는 방향벡터
+            // dirToTarget 캐릭터위치에서 타겟의 방향벡터
+            // 두개를 내적 (Dot함수)
+            // 그결과가 Cos세타 이고 cos세타는 90도 면 0 , 90 보다 작으면 - , 90보다 크면 + 이다.
+
+            // 공격각도 angle
+            // 360 도를 설정하면 앞에있는 범위인 180도까지이니 1/2 를 곱해준다.
+            // 삼각함수는 호도법이기때문에 * Mathf.Deg2Rad 해준다.
+
+            // 정해진 범위에 앞에있는지
             if (Vector3.Dot(transform.forward, dirToTarget) < Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad))
                 continue;
 
