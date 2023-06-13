@@ -45491,7 +45491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1802886972}
   - component: {fileID: 1802886973}
-  - component: {fileID: 1802886974}
   - component: {fileID: 1802886975}
   - component: {fileID: 1802886976}
   m_Layer: 0
@@ -45541,21 +45540,6 @@ MonoBehaviour:
   OnSaw:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1802886974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802886970}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9985cb70b0305a04994531312d25895a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 10
-  runSpeed: 20
-  moveTime: 1
 --- !u!143 &1802886975
 CharacterController:
   m_ObjectHideFlags: 0
