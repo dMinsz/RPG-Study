@@ -12,7 +12,7 @@ public class Mover : MonoBehaviour
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] float jumpSpeed;
-    //[SerializeField] FootStepSound footStepSound;
+    [SerializeField] FootStepSound footStepSound;
     [SerializeField] float walkStepRange;
     [SerializeField] float runStepRange;
 
@@ -78,7 +78,7 @@ public class Mover : MonoBehaviour
             if (lastStepTime < 0)
             {
                 lastStepTime = 0.5f;
-                //GenerateFootStepSound();
+                GenerateFootStepSound();
             }
             yield return null;
         }
@@ -122,11 +122,11 @@ public class Mover : MonoBehaviour
         return Physics.SphereCast(transform.position + Vector3.up * 1f, 0.5f, Vector3.down, out hit, 0.6f);
     }
 
-    //private void GenerateFootStepSound()
-    //{
-    //    FootStepSound footStep = Instantiate(footStepSound, transform.position, Quaternion.identity);
-    //    footStep.range = walk ? walkStepRange : runStepRange;
-    //}
+    private void GenerateFootStepSound()
+    {
+        FootStepSound footStep = Instantiate(footStepSound, transform.position, Quaternion.identity);
+        footStep.range = walk ? walkStepRange : runStepRange;
+    }
 
     private void OnDrawGizmosSelected()
     {

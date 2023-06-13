@@ -45,7 +45,7 @@ public class Attacker : MonoBehaviour
             Debug.Log("공격시작");
         }
         mover.enabled = false;
-        weapon.GetComponent<Collider>().enabled = false;
+        weapon.GetComponent<Collider>().enabled = true;
     }
 
     public void EndAttack()
@@ -55,7 +55,7 @@ public class Attacker : MonoBehaviour
             Debug.Log("공격끝");
         }
         mover.enabled = true;
-        weapon.GetComponent<Collider>().enabled = true;
+        weapon.GetComponent<Collider>().enabled = false;
     }
 
     public void AttackTiming()
@@ -85,7 +85,7 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         if (!debug)
             return;
@@ -102,6 +102,9 @@ public class Attacker : MonoBehaviour
     private Vector3 AngleToDir(float angle)
     {
         float radian = angle * Mathf.Deg2Rad;
+        // 벡터값이 (x,y)일시
+        // z를 기준으로 라서 (sin, cos) 로 사용
+        // x를 기준으로면 (cos, sin)
         return new Vector3(Mathf.Sin(radian), 0, Mathf.Cos(radian));
     }
 }
